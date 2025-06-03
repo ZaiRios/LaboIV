@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - DriveAr</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="images/Logo_DriveAr.png" alt="Logo DriveAr" class="logo">
+        </a>
+        <nav style="background-color: white; color: white;">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="#">Cómo Funciona</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+                <li><a href="#">Ser Anfitrión</a></li>
+               
+                <div class="hamburger-menu">
+                    <span></span>
+                    <div class="menu-content">
+                        <a href="#">Ingreso/Registro</a>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="contact-container">
+        <div class="contact-block">
+            <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <h1>Contacto</h1>
+            <div class="decorative-line"></div>
+            <p>Si tiene alguna duda puede contactarse con nosotros a través del siguiente formulario o por nuestros medios de contacto.</p>
+            
+            <div class="contact-form">
+                <form action="#" method="POST">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" required placeholder="Nombre">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" required placeholder="Correo electrónico">
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" id="subject" name="subject" required placeholder="Asunto">
+                    </div>
+                    
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="6" required placeholder="Mensaje"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="buscar-btn">Enviar mensaje</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h2>Información de contacto adicional</h2>
+                <p>
+                    <strong>Dirección:</strong> Av. Corrientes 1234, entre Callao y Rodríguez Peña, Buenos Aires, Argentina<br>
+                    <strong>Correo electrónico:</strong> ContactoDriveAR@gmail.com<br>
+                    <strong>WhatsApp:</strong> +54 9 11 2345-6789
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="#">Como funciona</a>
+            <a href="#">Preguntas frecuentes</a>
+            <a href="Contacto.html">Contacto</a>
+        </nav>
+        <div style="margin-top: 10px;">
+            &copy; 2025 DriveAR. Todos los derechos reservados.
+        </div>
+        <div style="margin-top: 10px;">
+            <a href="#">Política de privacidad</a> | <a href="#">Términos de uso</a>
+        </div>
+    </footer>
+
+    <button id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="position: fixed; bottom: 20px; right: 20px; background-color: #b06d13; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    <script src="main.js"></script>
+</body>
+</html> 
