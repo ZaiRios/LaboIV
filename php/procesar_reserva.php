@@ -1,5 +1,5 @@
 <?php
-require_once 'mercadopago.php';
+require_once __DIR__ . '/mercadopago.php';
 
 header('Content-Type: application/json');
 

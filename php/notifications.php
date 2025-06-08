@@ -1,6 +1,6 @@
 <?php
-require_once 'config.php';
-require_once 'mercadopago.php';
+require_once __DIR__ . '/config.php';
+require_once __DIR__ . '/mercadopago.php';
 
 // Verificar que la solicitud sea POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

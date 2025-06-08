@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DriveAr - Alquila tu vehículo ideal en minutos. La forma más simple y segura de rentar un auto.">
+    <meta name="keywords" content="alquiler de autos, renta de vehículos, DriveAr, alquiler de coches">
+    <title>DriveAr - Cómo Funciona</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <img src="images/Logo_DriveAr.png" alt="Logo DriveAr" class="logo">
+        </a>
+        <nav style="background-color: white; color: white;">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="como-funciona.html">Cómo Funciona</a></li>
+                <li><a href="preguntas.html">Preguntas Frecuentes</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+                <li><a href="publicar.html">Ser Anfitrión</a></li>
+                <li id="adminHeaderLink" style="display: none;"><a href="admin.html">Panel de Administración</a></li>
+               
+                <div class="hamburger-menu">
+                    <span></span>
+                    <div class="menu-content">
+                        <a href="#" id="hamburgerAuthLink">Ingreso/Registro</a>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero-text">
+        <h1>Reserva tu auto ideal en minutos</h1>
+        <h2>La forma más simple y segura de rentar un auto</h2>
+    </div>
+
+    <main>
+        <section class="steps-container">
+            <article class="step-card">
+                <div class="step-content">
+                    <span class="step-number" aria-hidden="true">01.</span>
+                    <h2>Selecciona tu vehículo</h2>
+                    <p>Accede a nuestro catálogo completando tu perfil, en pocos minutos ya podrás estar organizando tu próxima aventura con nosotros.</p>
+                </div>
+                <div class="step-image">
+                    <img src="images/1.seleccion-vehiculo.jpg" alt="Interfaz de selección de vehículo en DriveAr" loading="lazy">
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-image">
+                    <img src="images/2.seleccion-fecha.jpg" alt="Interfaz de selección de fechas en DriveAr" loading="lazy">
+                </div>
+                <div class="step-content">
+                    <span class="step-number" aria-hidden="true">02.</span>
+                    <h2>Selecciona las fechas de tu solicitud de renta</h2>
+                    <p>Elige las fechas de inicio y finalización de tu viaje desde el calendario de solicitud del vehículo y aguarda la confirmación del propietario en las notificaciones.</p>
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-content">
+                    <span class="step-number" aria-hidden="true">03.</span>
+                    <h2>Reserva y coordina tu viaje</h2>
+                    <p>Abona la reserva y ponte en contacto con el anfitrión para coordinar la entrega y devolución del vehículo. ¡Sí, así de simple!</p>
+                </div>
+                <div class="step-image">
+                    <img src="images/3.reserva-auto.jpg" alt="Interfaz de reserva y coordinación de viaje en DriveAr" loading="lazy">
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-image">
+                    <img src="images/4.cancelar-auto.jpg" alt="Interfaz de cancelación de reserva en DriveAr" loading="lazy">
+                </div>
+                <div class="step-content">
+                    <span class="step-number" aria-hidden="true">04.</span>
+                    <h2>¿Cambio de planes? Cancela hasta 48hs antes</h2>
+                    <p>Tienes tiempo de cancelar tu DriveAr hasta 48hs antes de tu aventura y te devolveremos la reserva.</p>
+                </div>
+            </article>
+
+            <article class="step-card">
+                <div class="step-content">
+                    <span class="step-number" aria-hidden="true">05.</span>
+                    <h2>¡Gana dinero como DriveAr!</h2>
+                    <p>Rentar tu vehículo es más rentable que un departamento. Emprende tu propio rent a car con DriveAr. ¡Descubre más!</p>
+                </div>
+                <div class="step-image">
+                    <img src="images/5.ganar-dinero.jpg" alt="Interfaz de ganancias en DriveAr" loading="lazy">
+                </div>    
+            </article>
+        </section>
+    </main>
+
+    <!-- Modal de Login -->
+    <div id="loginModal" class="login-modal">
+        <div class="login-modal-content">
+            <span class="login-modal-close">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <form id="adminLoginForm">
+                <div class="form-group">
+                    <label for="username">Usuario:</label>
+                    <input type="text" id="username" name="username" required class="login-input">
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required class="login-input">
+                </div>
+                <button type="submit" class="btn-admin">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="como-funciona.html">Cómo funciona</a>
+            <a href="preguntas.html">Preguntas frecuentes</a>
+            <a href="Contacto.html">Contacto</a>
+            <a href="publicar.html">Ser Anfitrión</a>
+        </nav>
+        <div style="margin-top: 10px;">
+            &copy; 2025 DriveAR. Todos los derechos reservados.
+        </div>
+        <div style="margin-top: 10px;">
+            <a href="#">Política de privacidad</a> | <a href="#">Términos de uso</a>
+        </div>
+    </footer>
+
+    <button id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="position: fixed; bottom: 20px; right: 20px; background-color: #b06d13; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 

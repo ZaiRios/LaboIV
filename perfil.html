@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <title>Perfil - DriveAR</title>
+</head>
+<body>
+    <header>
+        <img src="images/Logo_DriveAr.png" alt="Logo DriveAr" class="logo">
+        <nav style="background-color: white; color: white;">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="como-funciona.html">Cómo Funciona</a></li>
+                <li><a href="preguntas.html">Preguntas Frecuentes</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+                <li><a href="#">Ser Anfitrión</a></li>
+                <li id="adminHeaderLink" style="display: none;"><a href="admin.html">Panel de Administración</a></li>
+               
+                <div class="hamburger-menu">
+                    <span></span>
+                    <div class="menu-content">
+                        <a href="#" id="hamburgerAuthLink">Ingreso/Registro</a>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="sidebar">
+        <div class="profile-pic">
+            <img src="images/perfil_ejemplo.jpg" alt="Foto de perfil">
+        </div>
+        <div class="profile-email">vargas.matias734@gmail.com</div>
+        <hr class="sidebar-divider">
+        <div class="sidebar-menu">
+            <a href="perfil.html" class="sidebar-link"><span class="fa fa-user"></span> <span class="sidebar-text">Mi cuenta</span></a>
+            <hr class="sidebar-divider">
+            <a href="viajes.html" class="sidebar-link"><span class="fa fa-car"></span> <span class="sidebar-text">Mis viajes</span></a>
+            <hr class="sidebar-divider">
+            <a href="publicar.html" class="sidebar-link"><span class="fa fa-plus-square"></span> <span class="sidebar-text">Publicar vehículo</span></a>
+            <hr class="sidebar-divider">
+            <a href="#" class="sidebar-link" id="logoutLink"><span class="fa fa-sign-out"></span> <span class="sidebar-text">Cerrar sesión</span></a>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <section class="profile-section">
+            <form class="profile-form">
+                <div class="profile-form-header">
+                    <h2 class="profile-form-title">Información básica</h2>
+                    <button type="button" class="close-btn"><span class="fa fa-times"></span></button>
+                </div>
+                <div class="profile-form-row">
+                    <div class="profile-form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" value="Matias">
+                    </div>
+                    <div class="profile-form-group">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" id="apellido" name="apellido" value="Vargas">
+                    </div>
+                    <div class="profile-form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" id="email" name="email" value="vargas.matias734@gmail.com" readonly>
+                    </div>
+                </div>
+                <div class="profile-form-row">
+                    <div class="profile-form-group">
+                        <label for="fecha">Fecha de nacimiento</label>
+                        <input type="date" id="fecha" name="fecha">
+                    </div>
+                    <div class="profile-form-group whatsapp-group">
+                        <label for="whatsapp">Whatsapp</label>
+                        <div class="whatsapp-input">
+                            <span class="flag-icon"><img src="https://flagcdn.com/ar.svg" alt="AR" style="width:24px;"></span>
+                            <input type="text" id="whatsapp" name="whatsapp" placeholder="Whatsapp">
+                        </div>
+                    </div>
+                    <div class="profile-form-group">
+                        <label for="pais">País de residencia</label>
+                        <select id="pais" name="pais">
+                            <option>País de residencia</option>
+                            <option>Argentina</option>
+                            <option>Uruguay</option>
+                            <option>Chile</option>
+                            <option>Paraguay</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="save-btn">Guardar Cambios</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#" class="social-link"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="social-link"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fa fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fa fa-youtube"></i></a>
+        </div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="como-funciona.html">Cómo funciona</a>
+            <a href="preguntas.html">Preguntas frecuentes</a>
+            <a href="Contacto.html">Contacto</a>
+        </nav>
+        <div style="margin-top: 10px;">
+            &copy; 2025 DriveAR. Todos los derechos reservados.
+        </div>
+        <div style="margin-top: 10px;">
+            <a href="#">Política de privacidad</a> | <a href="#">Términos de uso</a>
+        </div>
+    </footer>
+
+    <button id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <script src="main.js"></script>
+</body>
+</html>

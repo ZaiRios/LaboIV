@@ -8,7 +8,7 @@ require_once 'config.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserva Exitosa - DriveAr</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -90,9 +90,9 @@ require_once 'config.php';
         </div>
     </footer>
 
-    <button id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <button id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="position: fixed; bottom: 20px; right: 20px; background-color: #b06d13; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
         <i class="fas fa-arrow-up"></i>
     </button>
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html> 

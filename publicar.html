@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Publicar vehículo - DriveAR</title>
+</head>
+<body>
+    <header>
+        <img src="images/Logo_DriveAr.png" alt="Logo DriveAr" class="logo">
+        <nav style="background-color: white; color: white;">
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="como-funciona.html">Cómo Funciona</a></li>
+                <li><a href="preguntas.html">Preguntas Frecuentes</a></li>
+                <li><a href="Contacto.html">Contacto</a></li>
+                <li><a href="#">Ser Anfitrión</a></li>
+                <li id="adminHeaderLink" style="display: none;"><a href="admin.html">Panel de Administración</a></li>
+               
+                <div class="hamburger-menu">
+                    <span></span>
+                    <div class="menu-content">
+                        <a href="#" id="hamburgerAuthLink">Ingreso/Registro</a>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="publish-section">
+        <div class="hero-text">
+            <h1>Publicar vehículo</h1>
+        </div>
+        <div class="publish-container">
+            <div class="progress-bar">
+                <div class="progress-step active">
+                    <span class="step-number">1</span>
+                    <span class="step-text">Información básica</span>
+                </div>
+                <div class="progress-step">
+                    <span class="step-number">2</span>
+                    <span class="step-text">Fotos</span>
+                </div>
+                <div class="progress-step">
+                    <span class="step-number">3</span>
+                    <span class="step-text">Precios</span>
+                </div>
+                <div class="progress-step">
+                    <span class="step-number">4</span>
+                    <span class="step-text">Disponibilidad</span>
+                </div>
+            </div>
+
+            <form class="publish-form">
+                <div class="form-section">
+                    <h2>Información básica del vehículo</h2>
+                    <div class="form-group">
+                        <label for="marca">Marca</label>
+                        <input type="text" id="marca" name="marca" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="modelo">Modelo</label>
+                        <input type="text" id="modelo" name="modelo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="anio">Año</label>
+                        <input type="number" id="anio" name="anio" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="patente">Patente</label>
+                        <input type="text" id="patente" name="patente" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="descripcion">Descripción</label>
+                        <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h2>Características</h2>
+                    <div class="features-grid">
+                        <div class="feature-item">
+                            <input type="checkbox" id="aire" name="aire">
+                            <label for="aire">Aire acondicionado</label>
+                        </div>
+                        <div class="feature-item">
+                            <input type="checkbox" id="bluetooth" name="bluetooth">
+                            <label for="bluetooth">Bluetooth</label>
+                        </div>
+                        <div class="feature-item">
+                            <input type="checkbox" id="gps" name="gps">
+                            <label for="gps">GPS</label>
+                        </div>
+                        <div class="feature-item">
+                            <input type="checkbox" id="camara" name="camara">
+                            <label for="camara">Cámara de reversa</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn-secondary">Cancelar</button>
+                    <button type="submit" class="btn-primary">Siguiente</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#" class="social-link"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="social-link"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fa fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fa fa-youtube"></i></a>
+        </div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="como-funciona.html">Cómo funciona</a>
+            <a href="preguntas.html">Preguntas frecuentes</a>
+            <a href="Contacto.html">Contacto</a>
+        </nav>
+        <div style="margin-top: 10px;">
+            &copy; 2025 DriveAR. Todos los derechos reservados.
+        </div>
+        <div style="margin-top: 10px;">
+            <a href="#">Política de privacidad</a> | <a href="#">Términos de uso</a>
+        </div>
+    </footer>
+
+    <button id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="position: fixed; bottom: 20px; right: 20px; background-color: #b06d13; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

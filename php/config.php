@@ -10,6 +10,6 @@ define('DB_PASS', 'contraseña');
 define('DB_NAME', 'drivear_db');
 
 // Configuración de la aplicación
-define('SITE_URL', 'http://tudominio.com');
+define('SITE_URL', 'http://tudominio.com/php');
 define('CURRENCY', 'ARS');
 ?> 
