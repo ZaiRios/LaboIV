@@ -10,10 +10,15 @@ window.addEventListener('scroll', function() {
 
 // Función para mostrar el modal de login
 function showLoginForm(e) {
-    e.preventDefault();
+    if (e) e.preventDefault();
     const loginModal = document.getElementById('loginModal');
     if (loginModal) {
         loginModal.classList.add('show');
+    }
+    // Cerrar el menú hamburguesa después de mostrar el modal
+    const menuContent = document.querySelector('.menu-content');
+    if (menuContent) {
+        menuContent.style.display = 'none';
     }
 }
 
@@ -23,6 +28,13 @@ function closeLoginModal() {
     if (loginModal) {
         loginModal.classList.remove('show');
     }
+}
+
+// Función para cerrar sesión
+function logout(e) {
+    if (e) e.preventDefault();
+    sessionStorage.removeItem('isAdminLoggedIn');
+    window.location.href = 'index.html';
 }
 
 // Función para verificar el estado de login
@@ -41,36 +53,74 @@ function checkLoginStatus() {
     }
 }
 
-// Función para cerrar sesión
-function logout(e) {
-    e.preventDefault();
-    sessionStorage.removeItem('isAdminLoggedIn');
-    checkLoginStatus();
-    // Cerrar el menú hamburguesa
-    const menuContent = document.querySelector('.menu-content');
-    if (menuContent) {
-        menuContent.style.display = 'none';
-    }
-}
-
 // Inicialización cuando el DOM está listo
 document.addEventListener('DOMContentLoaded', function() {
+    // Configuración del modal de login
+    const loginModal = document.getElementById('loginModal');
+    const closeButton = document.querySelector('.login-modal-close');
+    
+    if (loginModal && closeButton) {
+        // Cerrar modal con la cruz
+        closeButton.addEventListener('click', closeLoginModal);
+        
+        // Cerrar modal al hacer clic fuera
+        loginModal.addEventListener('click', function(e) {
+            if (e.target === loginModal) {
+                closeLoginModal();
+            }
+        });
+    }
+
     // Configuración del menú hamburguesa
     const hamburger = document.querySelector('.hamburger-menu');
     const menuContent = document.querySelector('.menu-content');
     
     if (hamburger && menuContent) {
-        hamburger.addEventListener('click', function(e) {
-            e.stopPropagation();
-            menuContent.style.display = menuContent.style.display === 'block' ? 'none' : 'block';
+        let menuTimeout;
+
+        // Mostrar el menú al pasar el mouse
+        hamburger.addEventListener('mouseenter', function() {
+            clearTimeout(menuTimeout);
+            menuContent.style.display = 'block';
         });
 
-        // Cerrar el menú al hacer clic fuera
-        document.addEventListener('click', function(e) {
-            if (!hamburger.contains(e.target) && !menuContent.contains(e.target)) {
+        // Mantener el menú visible mientras el mouse esté sobre el contenido
+        menuContent.addEventListener('mouseenter', function() {
+            clearTimeout(menuTimeout);
+            menuContent.style.display = 'block';
+        });
+
+        // Función para ocultar el menú con un pequeño retraso
+        function hideMenu() {
+            menuTimeout = setTimeout(function() {
                 menuContent.style.display = 'none';
+            }, 300);
+        }
+
+        // Ocultar el menú cuando el mouse sale del menú
+        hamburger.addEventListener('mouseleave', function(e) {
+            const toElement = e.relatedTarget;
+            if (!menuContent.contains(toElement)) {
+                hideMenu();
             }
         });
+
+        // Ocultar el menú cuando el mouse sale del contenido
+        menuContent.addEventListener('mouseleave', function(e) {
+            const toElement = e.relatedTarget;
+            if (!hamburger.contains(toElement)) {
+                hideMenu();
+            }
+        });
+
+        // Prevenir que el menú se oculte cuando el mouse está sobre el enlace
+        const authLink = document.getElementById('hamburgerAuthLink');
+        if (authLink) {
+            authLink.addEventListener('mouseenter', function() {
+                clearTimeout(menuTimeout);
+                menuContent.style.display = 'block';
+            });
+        }
     }
 
     // Configuración del formulario de login
@@ -138,10 +188,8 @@ function isUserLoggedIn() {
 
 // Función para manejar el clic en "Ser Anfitrión"
 function handleAnfitrionClick(e) {
-    if (!isUserLoggedIn()) {
-        e.preventDefault();
-        showLoginModal();
-    }
+    e.preventDefault();
+    window.location.href = 'publicar.html';
 }
 
 // Agregar event listeners para los enlaces de "Ser Anfitrión"
@@ -150,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
     anfitrionLinks.forEach(link => {
         link.addEventListener('click', handleAnfitrionClick);
     });
-}); 
+});
 
 // Mostrar el botón de scroll-top al hacer scroll
 window.addEventListener('scroll', function() {
@@ -162,18 +210,36 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Menú hamburguesa para móviles (opcional, si se quiere hacer funcional)
+// Menú hamburguesa para móviles
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger-menu');
+    const navUl = document.querySelector('nav ul');
+    const menuContent = document.querySelector('.menu-content');
+    
     if (hamburger) {
         hamburger.addEventListener('click', function(e) {
             e.stopPropagation();
-            const menu = hamburger.querySelector('.menu-content');
-            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            this.classList.toggle('active');
+            navUl.classList.toggle('show');
+            menuContent.classList.toggle('show');
         });
-        document.body.addEventListener('click', function() {
-            const menu = hamburger.querySelector('.menu-content');
-            if (menu) menu.style.display = 'none';
+
+        // Cerrar menú al hacer clic fuera
+        document.addEventListener('click', function(e) {
+            if (!hamburger.contains(e.target) && !navUl.contains(e.target) && !menuContent.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navUl.classList.remove('show');
+                menuContent.classList.remove('show');
+            }
+        });
+
+        // Prevenir que el menú se cierre al hacer clic dentro
+        navUl.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        menuContent.addEventListener('click', function(e) {
+            e.stopPropagation();
         });
     }
 });

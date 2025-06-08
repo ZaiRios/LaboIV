@@ -4,137 +4,498 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/estilospublicar.css">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
-    <link rel="stylesheet" href="css/estilos.css">
     <title>Publicar vehículo - DriveAR</title>
 </head>
 <body>
-    <header>
-        <img src="images/Logo_DriveAr.png" alt="Logo DriveAr" class="logo">
-        <nav style="background-color: white; color: white;">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="como-funciona.html">Cómo Funciona</a></li>
-                <li><a href="preguntas.html">Preguntas Frecuentes</a></li>
-                <li><a href="Contacto.html">Contacto</a></li>
-                <li><a href="#">Ser Anfitrión</a></li>
-                <li id="adminHeaderLink" style="display: none;"><a href="admin.html">Panel de Administración</a></li>
-               
-                <div class="hamburger-menu">
-                    <span></span>
-                    <div class="menu-content">
-                        <a href="#" id="hamburgerAuthLink">Ingreso/Registro</a>
-                    </div>
-                </div>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="publish-section">
-        <div class="hero-text">
-            <h1>Publicar vehículo</h1>
-        </div>
-        <div class="publish-container">
-            <div class="progress-bar">
-                <div class="progress-step active">
-                    <span class="step-number">1</span>
-                    <span class="step-text">Información básica</span>
-                </div>
-                <div class="progress-step">
-                    <span class="step-number">2</span>
-                    <span class="step-text">Fotos</span>
-                </div>
-                <div class="progress-step">
-                    <span class="step-number">3</span>
-                    <span class="step-text">Precios</span>
-                </div>
-                <div class="progress-step">
-                    <span class="step-number">4</span>
-                    <span class="step-text">Disponibilidad</span>
+  <div class="sidebar">
+    <div class="profile-pic">
+      <img src="images/perfil_ejemplo.jpg" alt="Foto de perfil">
+    </div>
+    <div class="profile-email">vargas.matias734@gmail.com</div>
+    <hr class="sidebar-divider">
+    <div class="sidebar-menu">
+      <a href="perfil.html" class="sidebar-link"><span class="fa fa-user"></span> <span class="sidebar-text">Mi cuenta</span></a>
+      <hr class="sidebar-divider">
+      <a href="viajes.html" class="sidebar-link"><span class="fa fa-car"></span> <span class="sidebar-text">Mis viajes</span></a>
+      <hr class="sidebar-divider">
+      <a href="publicar.html" class="sidebar-link"><span class="fa fa-plus-square"></span> <span class="sidebar-text">Publicar vehículo</span></a>
+      <hr class="sidebar-divider">
+      <a href="#" class="sidebar-link"><span class="fa fa-sign-out"></span> <span class="sidebar-text">Cerrar sesión</span></a>
+    </div>
+  </div>
+  <header>
+    <img src="images/Logo_DriveAr.png" alt="Logo DriveAr" class="logo">
+    <nav style="background-color: white; color: white;">
+        <ul>
+              <li><a href="#">Cómo Funciona</a></li>
+              <li><a href="preguntas.html">Preguntas Frecuentes</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">Ser Anfitrión</a></li>
+           
+            <div class="hamburger-menu">
+                <span></span>
+                <div class="menu-content">
+                    <a href="perfil.html">Ingreso/Registro</a>
                 </div>
             </div>
+        </ul>
+    </nav>
+  </header>
+  <div class="main-content">
+    <div class="progress-indicator" style="text-align: center; margin-bottom: 20px;">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <h1 id="title_publicar">Nuevo vehículo</h1>
+    <form id="nuevoVehiculoForm">
+      <section class="form-step active-step">
+        <h2>Marca y modelo de vehículo</h2>
+        <input type="text" id="marcaModelo" name="marcaModelo" placeholder="Ej: Citroen C3 Aircross" required>
 
-            <form class="publish-form">
-                <div class="form-section">
-                    <h2>Información básica del vehículo</h2>
-                    <div class="form-group">
-                        <label for="marca">Marca</label>
-                        <input type="text" id="marca" name="marca" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="modelo">Modelo</label>
-                        <input type="text" id="modelo" name="modelo" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="anio">Año</label>
-                        <input type="number" id="anio" name="anio" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="patente">Patente</label>
-                        <input type="text" id="patente" name="patente" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="descripcion">Descripción</label>
-                        <textarea id="descripcion" name="descripcion" rows="4" required></textarea>
-                    </div>
-                </div>
+        <h2>Descripción</h2>
+        <textarea id="descripcion" name="descripcion" placeholder="Ej: En excelente estado, ideal para paseos por ruta y ciudad." required></textarea>
 
-                <div class="form-section">
-                    <h2>Características</h2>
-                    <div class="features-grid">
-                        <div class="feature-item">
-                            <input type="checkbox" id="aire" name="aire">
-                            <label for="aire">Aire acondicionado</label>
-                        </div>
-                        <div class="feature-item">
-                            <input type="checkbox" id="bluetooth" name="bluetooth">
-                            <label for="bluetooth">Bluetooth</label>
-                        </div>
-                        <div class="feature-item">
-                            <input type="checkbox" id="gps" name="gps">
-                            <label for="gps">GPS</label>
-                        </div>
-                        <div class="feature-item">
-                            <input type="checkbox" id="camara" name="camara">
-                            <label for="camara">Cámara de reversa</label>
-                        </div>
-                    </div>
-                </div>
+        <h2>Información básica</h2>
+        <div class="two-columns-form-section">
+          <div class="form-column">
+            <div class="form-group-with-icon">
+              <div class="label-icon-group">
+                <img src="images/icons8-información-30.png" alt="Icono de información" class="info-icon">
+                <label for="año">Año</label>
+              </div>
+              <input type="number" id="año" name="año" value="2025" required>
+            </div>
 
-                <div class="form-actions">
-                    <button type="button" class="btn-secondary">Cancelar</button>
-                    <button type="submit" class="btn-primary">Siguiente</button>
-                </div>
-            </form>
+            <div class="form-group-with-icon">
+              <div class="label-icon-group">
+                <img src="images/icons8-gearbox-24.png" alt="Icono de información" class="info-icon">
+                <label for="transmision">Transmisión</label>
+              </div>
+              <select id="transmision" name="transmision" required>
+                <option value="Manual">Manual</option>
+                <option value="Automática">Automática</option>
+              </select>
+            </div>
+
+            <div class="form-group-with-icon">
+              <div class="label-icon-group">
+                <img src="images/icons8-puerta-de-automóvil-24.png" alt="Icono de información" class="info-icon">
+                <label for="puertas">Puertas</label>
+              </div>
+              <select id="puertas" name="puertas" required>
+                <option value="2">2 Puertas</option>
+                <option value="3">3 Puertas</option>
+                <option value="4">4 Puertas</option>
+                <option value="5">5 Puertas</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-column">
+            <div class="form-group-with-icon">
+              <div class="label-icon-group">
+                <img src="images/icons8-dispensador-de-gasolina-50.png" alt="Icono de información" class="info-icon">
+                <label for="combustible">Combustible</label>
+              </div>
+              <select id="combustible" name="combustible" required>
+                <option value="Nafta">Nafta</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Eléctrico">Eléctrico</option>
+                <option value="Híbrido">Híbrido</option>
+              </select>
+            </div>
+
+            <div class="form-group-with-icon">
+              <div class="label-icon-group">
+                <img src="images/icons8-car-seat-50.png" alt="Icono de información" class="info-icon">
+                <label for="pasajeros">Pasajeros</label>
+              </div>
+              <select id="pasajeros" name="pasajeros" required>
+                <option value="1">1 Pasajero</option>
+                <option value="2">2 Pasajeros</option>
+                <option value="3">3 Pasajeros</option>
+                <option value="4">4 Pasajeros</option>
+                <option value="5">5 Pasajeros</option>
+                <option value="6">6 Pasajeros</option>
+                <option value="7">7 Pasajeros</option>
+              </select>
+            </div>
+
+            <div class="form-group-with-icon">
+              <div class="label-icon-group">
+                <img src="images/icons8-equipaje-64.png" alt="Icono de información" class="info-icon">
+                <label for="maletas">Maletas</label>
+              </div>
+              <select id="maletas" name="maletas" required>
+                <option value="0">0 Maletas</option>
+                <option value="1">1 Maleta</option>
+                <option value="2">2 Maletas</option>
+                <option value="3">3 Maletas</option>
+                <option value="4">4 Maletas</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <h2>Características</h2>
+        <p>Activa las características que corresponden a tu vehículo</p>
+        <div class="form-group-with-icon">
+          <div class="label-icon-group">
+            <img src="images/icons8-aire-acondicionado-50.png" alt="Icono de información" class="info-icon">
+            <label for="aireAcondicionado">Aire acondicionado</label>
+            <input type="checkbox" id="aireAcondicionado" name="aireAcondicionado">
+          </div>  
+        </div>
+        <div class="form-group-with-icon">
+          <div class="label-icon-group">
+            <img src="images/icons8-airbag-activado-50.png" alt="Icono de información" class="info-icon">
+            <label for="airbags">Airbags</label>
+            <input type="checkbox" id="airbags" name="airbags">
+          </div>
+        </div>
+        <div class="form-group-with-icon">
+          <div class="label-icon-group">
+            <img src="images/icons8-frenosabs-50.png" alt="Icono de información" class="info-icon">
+            <label for="frenosABS">Frenos ABS</label>
+            <input type="checkbox" id="frenosABS" name="frenosABS">
+          </div>
+        </div>
+        <div class="form-group-with-icon">
+          <div class="label-icon-group">
+            <img src="images/icons8-levanta-cristales-50.png" alt="Icono de información" class="info-icon">
+            <label for="levantaCristales">Levanta cristales</label>
+            <input type="checkbox" id="levantaCristales" name="levantaCristales">
+          </div>
+        </div>
+        <div class="form-group-with-icon">
+          <div class="label-icon-group">
+            <img src="images/icons8-bluetooth-50.png" alt="Icono de información" class="info-icon">
+            <label for="bluetooth">Bluetooth</label>
+            <input type="checkbox" id="bluetooth" name="bluetooth">
+          </div>
+        </div>
+        <div class="form-group-with-icon">
+          <div class="label-icon-group">
+            <img src="images/icons8-usb-50.png" alt="Icono de información" class="info-icon">
+            <label for="entradaUSB">Entrada USB</label>
+            <input type="checkbox" id="entradaUSB" name="entradaUSB">
+          </div>
+        </div>
+
+
+        <h2>Normas de uso</h2>
+        <p>Determina tus políticas de uso</p>
+        <div class="form-group-with-icon">
+          <div class="label-icon-group">
+            <img src="images/icons8-kms-ilimitados-24.png" alt="Icono de información" class="info-icon">
+            <label for="kmsDia">Kms x día</label>
+          </div>
+          <select id="kmsDia" name="kmsDia" required>
+            <option value="300">300 kms</option>
+            <option value="500">500 kms</option>
+            <option value="Sin Limite">Sin Límite</option>
+          </select>
+        </div>
+        <div class="form-group-with-icon">
+          <div class="label-icon-group">
+            <img src="images/icons8-usb-50.png" alt="Icono de información" class="info-icon">
+            <label for="noComer">No comer</label>
+            <input type="checkbox" id="noComer" name="noComer">
+          </div>
+        </div>
+        <div class="form-group-with-icon">
+          <div class="label-icon-group">
+            <img src="images/icons8-no-fumar-50.png" alt="Icono de información" class="info-icon">
+            <label for="noFumar">No fumar</label>
+            <input type="checkbox" id="noFumar" name="noFumar">
+          </div>
+        </div>
+        <div class="form-group-with-icon">
+          <div class="label-icon-group">
+            <img src="images/icons8-seguro-completo-50.png" alt="Icono de información" class="info-icon">
+            <label for="seguroCompleto">Seguro completo con Franquicia</label>
+            <input type="checkbox" id="seguroCompleto" name="seguroCompleto">
+          </div>
         </div>
     </section>
 
-    <footer>
-        <div class="social-icons">
-            <a href="#" class="social-link"><i class="fa fa-facebook"></i></a>
-            <a href="#" class="social-link"><i class="fa fa-twitter"></i></a>
-            <a href="#" class="social-link"><i class="fa fa-instagram"></i></a>
-            <a href="#" class="social-link"><i class="fa fa-youtube"></i></a>
-        </div>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="como-funciona.html">Cómo funciona</a>
-            <a href="preguntas.html">Preguntas frecuentes</a>
-            <a href="Contacto.html">Contacto</a>
-        </nav>
-        <div style="margin-top: 10px;">
-            &copy; 2025 DriveAR. Todos los derechos reservados.
-        </div>
-        <div style="margin-top: 10px;">
-            <a href="#">Política de privacidad</a> | <a href="#">Términos de uso</a>
-        </div>
-    </footer>
 
-    <button id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="position: fixed; bottom: 20px; right: 20px; background-color: #b06d13; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
-        <i class="fas fa-arrow-up"></i>
-    </button>
+      <section class="form-step">
+        <h2>Ubicación</h2>
+        <div>
+          <label for="ubicacion">Selecciona una ubicación</label>
+        </div>
+        <select id="ubicacion" name="ubicacion" required>
+            <option value="caba">Ciudad Autonoma de Buenos Aires</option>
+            <option value="Prov-Bs-As">Provincia de Buenos Aires</option>
+        </select>
 
-    <script src="js/main.js"></script>
+        <div id="localidadField" style="display: none;">
+          <label for="localidad">Localidad</label>
+          <select id="localidad" name="localidad">
+            <option value="">Selecciona una localidad</option>
+            <option value="la-plata">La Plata</option>
+            <option value="mar-del-plata">Mar del Plata</option>
+            <option value="bahia-blanca">Bahía Blanca</option>
+            <option value="canuelas">Cañuelas</option>
+            <option value="Florencio-varela">Florencio Varela</option>
+            <option value="ezeiza">Ezeiza</option>
+            <option value="lanus">Lanús</option>
+            <option value="quilmes">Quilmes</option>
+            <option value="matanza">La Matanza</option>
+            <option value="moron">Morón</option>
+            <option value="merlo">Merlo</option>
+            <option value="moreno">Moreno</option>
+            <option value="tigre">Tigre</option>
+            <option value="san-isidro">San Isidro</option>
+
+            <!-- Más opciones de localidades aquí -->
+          </select>
+        </div>
+
+        <h2>Precio por día</h2>
+        <div>
+          <label for="precioDia">ARS</label>
+          <input type="number" id="precioDia" name="precioDia" placeholder="" required>
+        </div>
+
+        <h2>Patente o placa del vehículo</h2>
+        <div>
+          <input type="text" id="patente" name="patente" placeholder="Ingresa la patente de tu vehículo" required>
+        </div>
+
+        <h2>¿Quieres ofrecer algún servicio extra?</h2>
+        <p>Activa los servicios extras que corresponda.</p>
+        <div class="form-group-with-icon">
+            <div class="label-icon-group">
+              <img src="images/icons8-aterrizaje-50.png" alt="Icono de información" class="info-icon">
+                <label for="entregaAeropuerto">Entrega en el aeropuerto</label>
+                <input type="checkbox" id="entregaAeropuerto" name="entregaAeropuerto">
+            </div>
+        </div>
+        <div class="form-group-with-icon">
+            <div class="label-icon-group">
+              <img src="images/icons8-despegue-50.png" alt="Icono de información" class="info-icon">
+                <label for="devolucionAeropuerto">Devolución en el aeropuerto</label>
+                <input type="checkbox" id="devolucionAeropuerto" name="devolucionAeropuerto">
+            </div>
+        </div>
+        <div class="form-group-with-icon">
+            <div class="label-icon-group">
+              <img src="images/icons8-asiento-de-coche-de-bebé-50.png" alt="Icono de información" class="info-icon">
+                <label for="sillaBebe">Silla de bebé</label>
+                <input type="checkbox" id="sillaBebe" name="sillaBebe">
+            </div>
+        </div>
+        <!-- Otros servicios extra aquí -->
+      </section>
+
+      <section class="form-step">
+        <h2>Agrega imágenes del vehículo</h2>
+        <p>Sube imágenes con buena iluminación que sean fieles al estado del vehículo.</p>
+
+        <div class="image-upload-container">
+          <div class="image-upload-item">
+            <span class="image-number">1</span>
+            <img src="images/perfil-frontal.png" alt="Perfil frontal del vehículo" class="upload-image-placeholder">
+            <div class="image-info">
+              <h3>Perfil</h3>
+              <p>frontal</p>
+            </div>
+            <button type="button" class="upload-button">Subir Foto</button>
+            <input type="file" class="file-input" accept="image/*">
+          </div>
+
+          <div class="image-upload-item">
+            <span class="image-number">2</span>
+            <img src="images/frontal.png" alt="Vista frontal del vehículo" class="upload-image-placeholder">
+            <div class="image-info">
+              <h3>Frontal</h3>
+              <p>recto</p>
+            </div>
+            <button type="button" class="upload-button">Subir Foto</button>
+            <input type="file" class="file-input" accept="image/*">
+          </div>
+
+          <div class="image-upload-item">
+            <span class="image-number">3</span>
+            <img src="images/perfil-trasero.png" alt="Perfil trasero del vehículo" class="upload-image-placeholder">
+            <div class="image-info">
+              <h3>Perfil</h3>
+              <p>trasero</p>
+            </div>
+            <button type="button" class="upload-button">Subir Foto</button>
+            <input type="file" class="file-input" accept="image/*">
+          </div>
+           <div class="image-upload-item">
+            <span class="image-number">4</span>
+            <img src="images/trasero.png" alt="Vista trasera del vehículo" class="upload-image-placeholder">
+            <div class="image-info">
+              <h3>Trasero</h3>
+              <p>recto</p>
+            </div>
+            <button type="button" class="upload-button">Subir Foto</button>
+            <input type="file" class="file-input" accept="image/*">
+          </div>
+           <div class="image-upload-item">
+            <span class="image-number">5</span>
+            <img src="images/interior-frontal.png" alt="Interior frontal del vehículo" class="upload-image-placeholder">
+            <div class="image-info">
+              <h3>Interior</h3>
+              <p>frontal</p>
+            </div>
+            <button type="button" class="upload-button">Subir Foto</button>
+            <input type="file" class="file-input" accept="image/*">
+          </div>
+           <div class="image-upload-item">
+            <span class="image-number">6</span>
+            <img src="images/interior-trasero.png" alt="Interior trasero del vehículo" class="upload-image-placeholder">
+            <div class="image-info">
+              <h3>Interior</h3>
+              <p>trasero</p>
+            </div>
+            <button type="button" class="upload-button">Subir Foto</button>
+            <input type="file" class="file-input" accept="image/*">
+          </div>
+        </div>
+      </section>
+
+      <div class="form-navigation-buttons" style="display: flex; justify-content: space-between; margin-top: 20px;">
+        <button type="button" id="backButton" style="display: none;">Atrás</button>
+        <button type="submit" id="nextButton">Siguiente</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('nuevoVehiculoForm');
+      const sections = document.querySelectorAll('.form-step');
+      const progressCircles = document.querySelectorAll('.progress-indicator span');
+      const nextButton = form.querySelector('#nextButton');
+      const backButton = form.querySelector('#backButton');
+      const ubicacionSelect = document.getElementById('ubicacion');
+      const localidadField = document.getElementById('localidadField');
+      const localidadSelect = document.getElementById('localidad');
+      const uploadButtons = document.querySelectorAll('.upload-button');
+      const fileInputs = document.querySelectorAll('.file-input');
+
+      let currentSectionIndex = 0;
+
+      // Función para mostrar la sección actual y actualizar los indicadores de progreso
+      function showSection(index) {
+        sections.forEach((section, i) => {
+          if (i === index) {
+            section.classList.add('active-step');
+          } else {
+            section.classList.remove('active-step');
+          }
+        });
+        updateProgressIndicator(index);
+
+        // Mostrar u ocultar el botón Anterior
+        if (currentSectionIndex === 0) {
+          backButton.style.display = 'none';
+        } else {
+          backButton.style.display = 'inline-block'; // O el display original del botón
+        }
+
+        // Actualizar texto del botón Siguiente/Publicar
+        if (currentSectionIndex === sections.length - 1) {
+          nextButton.textContent = 'Publicar';
+        } else {
+          nextButton.textContent = 'Siguiente';
+        }
+      }
+
+      // Función para actualizar los indicadores de progreso
+      function updateProgressIndicator(index) {
+        progressCircles.forEach((circle, i) => {
+          if (i <= index) {
+            circle.classList.add('active');
+          } else {
+            circle.classList.remove('active');
+          }
+        });
+      }
+
+      // Mostrar la primera sección al cargar la página
+      showSection(currentSectionIndex);
+
+      // Manejar el clic de los botones "Subir Foto"
+      uploadButtons.forEach((button, index) => {
+        button.addEventListener('click', function() {
+          fileInputs[index].click();
+        });
+      });
+
+      // Opcional: Mostrar el nombre del archivo seleccionado (puedes adaptarlo para mostrar la imagen)
+      fileInputs.forEach(input => {
+        input.addEventListener('change', function() {
+          if (this.files && this.files[0]) {
+            // Aquí puedes añadir lógica para previsualizar la imagen si lo deseas
+            console.log('Archivo seleccionado:', this.files[0].name);
+          }
+        });
+      });
+
+      // Manejar el cambio en el selector de Ubicación
+      ubicacionSelect.addEventListener('change', function() {
+        if (ubicacionSelect.value === 'Prov-Bs-As') {
+          localidadField.style.display = 'block'; // O el display adecuado para mostrar el div
+          localidadSelect.setAttribute('required', 'required'); // Hacer el campo requerido condicionalmente
+        } else {
+          localidadField.style.display = 'none';
+          localidadSelect.removeAttribute('required');
+          localidadSelect.value = ''; // Resetear el valor
+        }
+      });
+
+      // Manejar el clic del botón Siguiente
+      nextButton.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        const currentSection = sections[currentSectionIndex];
+        const inputsInSection = currentSection.querySelectorAll('input[required], select[required], textarea[required]');
+        let sectionIsValid = true;
+
+        inputsInSection.forEach(input => {
+          if (!input.checkValidity()) {
+            sectionIsValid = false;
+            // Opcional: añadir estilos visuales para campos inválidos aquí
+          }
+        });
+
+        if (sectionIsValid) {
+          currentSectionIndex++;
+          if (currentSectionIndex < sections.length) {
+            showSection(currentSectionIndex);
+          } else {
+            // Si es la última sección y es válida, se puede enviar el formulario o hacer otra acción final.
+            alert('Formulario completado. Listo para publicar!');
+            // Aquí podrías enviar el formulario con form.submit() o hacer una llamada AJAX
+            // form.submit();
+          }
+        } else {
+          alert('Por favor, complete todos los campos requeridos en esta sección.');
+        }
+      });
+
+      // Manejar el clic del botón Anterior
+      backButton.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        if (currentSectionIndex > 0) {
+          currentSectionIndex--;
+          showSection(currentSectionIndex);
+        }
+      });
+    });
+  </script>
 </body>
 </html>

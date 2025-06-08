@@ -7,6 +7,200 @@
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: #f8f8f8; /* Consistent with main site body background */
+            color: #222;
+        }
+        .admin-container {
+            max-width: 1000px; /* Adjusted max-width for better visual */
+            margin: 20px auto; /* Add some top/bottom margin */
+            padding: 20px;
+            border: 2px solid #ff7910; /* Orange border */
+            border-radius: 12px; /* Consistent rounded corners */
+            background: #fff; /* White background for content area */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Add a shadow */
+        }
+        .admin-header {
+            background-color: #ff7910;
+            color: white;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+        .admin-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 2rem;
+        }
+        .admin-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .admin-card:hover {
+            transform: translateY(-6px) scale(1.03);
+            box-shadow: 0 6px 18px rgba(176,109,19,0.15);
+        }
+        .admin-form {
+            /* Styles for the container div */
+            max-width: 450px; /* Slightly adjusted max-width for the outer container */
+            margin: 40px auto; /* Center the outer container */
+            padding: 35px; /* Inner padding for the container */
+            background: white;
+            border-radius: 12px; /* Consistent rounded corners */
+            border: 3px solid #ff7910; /* Orange border */
+            box-shadow: 0 4px 18px rgba(0,0,0,0.15); /* Slightly stronger shadow */
+        }
+        #adminLoginForm {
+            /* Styles for the actual form element */
+            max-width: 350px; /* Limited width for the form content */
+            margin: 0 auto; /* Center the form element within its container */
+            padding: 0; /* Remove default form padding */
+        }
+        .admin-form h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #ff7910;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #ff7910;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .login-input {
+            max-width: 300px; /* Limit the width of the input fields */
+            margin: 0 auto; /* Center the input fields */
+            display: block; /* Make inputs block elements to apply margin auto */
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: #ff7910;
+            box-shadow: 0 0 0 0.2rem rgba(255, 121, 16, 0.25);
+        }
+        .btn-admin {
+            background-color: #ff7910;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.5s ease, box-shadow 0.3s ease;
+            width: 100%;
+            margin-top: 15px;
+        }
+        .btn-admin:hover {
+            background-color: #8a530e;
+            transform: scale(1.05);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+        }
+        .btn-danger {
+            background-color: #dc3545;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+        .btn-success {
+            background-color: #28a745;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+        }
+        .btn-secondary {
+            background-color: #6c757d;
+        }
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+        .back-button {
+            margin-bottom: 20px;
+        }
+        .cars-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .cars-table th, .cars-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .cars-table th {
+            background-color: #ff7910;
+            color: white;
+        }
+        .cars-table tr:hover {
+            background-color: #f5e1c3;
+        }
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 600px;
+            border-radius: 8px;
+        }
+        .close {
+            float: right;
+            cursor: pointer;
+            font-size: 24px;
+        }
+        /* Removed the rule that forced hamburger menu content to be always visible */
+        /* body.admin-page .hamburger-menu .menu-content { */
+        /*     display: block; */
+        /*     position: relative; */
+        /*     top: auto; */
+        /*     right: auto; */
+        /*     margin-left: 10px; */
+        /* } */
+
+        /* Existing modal styles */
+        .modal {
+        }
+         #loginForm button.btn-admin:hover {
+            background-color: #8a530e;
+            transform: scale(1.02);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+         }
+
+         /* Styles for click-to-show hamburger menu on admin page */
+         body.admin-page .hamburger-menu .menu-content {
+             display: none; /* Hide by default on admin page */
+         }
+         body.admin-page .hamburger-menu .menu-content.show {
+             display: block; /* Show when the 'show' class is present */
+         }
+
+        /* General styles potentially affecting inputs */
+    </style>
 </head>
 <body class="admin-page">
     <header>
@@ -139,9 +333,212 @@
         </div>
     </main>
 
-    <button id="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="position: fixed; bottom: 20px; right: 20px; background-color: #b06d13; color: white; border: none; padding: 10px; border-radius: 5px; cursor: pointer;">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    <script src="js/main.js"></script>
+    <script>
+        // Datos de ejemplo (en un caso real, estos vendrían de una base de datos)
+        let cars = [
+            {
+                id: 1,
+                marca: "Toyota",
+                modelo: "Corolla",
+                anio: 2022,
+                categoria: "Sedan",
+                precio: 5000,
+                estado: "Disponible"
+            },
+            {
+                id: 2,
+                marca: "Honda",
+                modelo: "Civic",
+                anio: 2021,
+                categoria: "Hatchback",
+                precio: 7000,
+                estado: "Alquilado"
+            }
+        ];
+
+        // Get reference to the auth link in the hamburger menu
+        const hamburgerAuthLink = document.getElementById('hamburgerAuthLink');
+
+        // Function to update auth link based on login status
+        function updateAuthLink(isLoggedIn) {
+            if (isLoggedIn) {
+                hamburgerAuthLink.textContent = 'Cerrar Sesión';
+                hamburgerAuthLink.onclick = logout;
+            } else {
+                hamburgerAuthLink.textContent = 'Ingreso/Registro';
+                hamburgerAuthLink.onclick = showLogin;
+            }
+        }
+
+        // Login form submit handler
+        document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Verificar credenciales de administrador
+            if (username === 'A' && password === 'A') {
+                sessionStorage.setItem('isAdminLoggedIn', 'true');
+                showDashboard();
+                updateAuthLink(true);
+                // Hide the adminHeaderLink in the main nav as we are already on the admin page
+                const adminHeaderLink = document.getElementById('adminHeaderLink');
+                if (adminHeaderLink) {
+                    adminHeaderLink.style.display = 'none';
+                }
+            } else {
+                alert('Credenciales incorrectas. Por favor, intente nuevamente.');
+            }
+        });
+
+        // Function to show the login section
+        function showLogin() {
+            document.getElementById('loginSection').style.display = 'block';
+            document.getElementById('dashboardSection').style.display = 'none';
+            document.getElementById('carManagementSection').style.display = 'none';
+            updateAuthLink(false);
+        }
+
+        // Function to show the dashboard
+        function showDashboard() {
+            document.getElementById('loginSection').style.display = 'none';
+            document.getElementById('dashboardSection').style.display = 'block';
+            document.getElementById('carManagementSection').style.display = 'none';
+            document.querySelector('.admin-grid').style.display = 'grid';
+            updateAuthLink(true);
+        }
+
+        // Show car management section
+        function showCarManagement() {
+            document.querySelector('.admin-grid').style.display = 'none';
+            document.getElementById('carManagementSection').style.display = 'block';
+            loadCarsTable();
+             updateAuthLink(true); // Still logged in when viewing car management
+        }
+
+        // Function to log out
+        function logout() {
+            sessionStorage.removeItem('isAdminLoggedIn');
+            window.location.href = 'index.html';
+        }
+
+        // Load cars table (Keep existing function)
+        function loadCarsTable() {
+            const tbody = document.getElementById('carsTableBody');
+            tbody.innerHTML = '';
+            
+            cars.forEach(car => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${car.marca}</td>
+                    <td>${car.modelo}</td>
+                    <td>${car.anio}</td>
+                    <td>${car.categoria}</td>
+                    <td>$${car.precio}</td>
+                    <td>${car.estado}</td>
+                    <td class="action-buttons">
+                        <button class="btn-admin" onclick="editCar(${car.id})">Editar</button>
+                        <button class="btn-admin btn-danger" onclick="deleteCar(${car.id})">Eliminar</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Show modal for adding car (Keep existing function)
+        function showAddCarModal() {
+            document.getElementById('modalTitle').textContent = 'Agregar Nuevo Auto';
+            document.getElementById('carForm').reset();
+            document.getElementById('carModal').style.display = 'block';
+        }
+
+        // Close modal (Keep existing function)
+        function closeCarModal() {
+            document.getElementById('carModal').style.display = 'none';
+        }
+
+        // Edit car (Keep existing function)
+        function editCar(id) {
+            const car = cars.find(c => c.id === id);
+            if (car) {
+                document.getElementById('modalTitle').textContent = 'Editar Auto';
+                document.getElementById('marca').value = car.marca;
+                document.getElementById('modelo').value = car.modelo;
+                document.getElementById('anio').value = car.anio;
+                document.getElementById('categoria').value = car.categoria;
+                document.getElementById('precio').value = car.precio;
+                document.getElementById('estado').value = car.estado;
+                document.getElementById('carModal').style.display = 'block';
+            }
+        }
+
+        // Delete car (Keep existing function)
+        function deleteCar(id) {
+            if (confirm('¿Está seguro de que desea eliminar este auto?')) {
+                cars = cars.filter(car => car.id !== id);
+                loadCarsTable();
+            }
+        }
+
+        // Handle form submission (Keep existing function)
+        document.getElementById('carForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const carData = Object.fromEntries(formData.entries());
+            
+            // Aquí iría la lógica para guardar en la base de datos
+            console.log('Datos del auto:', carData);
+            
+            closeCarModal();
+            loadCarsTable();
+        });
+
+        // Close modal when clicking outside (Keep existing function)
+        window.onclick = function(event) {
+            const modal = document.getElementById('carModal');
+            if (event.target === modal) {
+                closeCarModal();
+            }
+        }
+
+        // On page load: Check login status and set initial view and link text
+        window.onload = function() {
+            const isLoggedIn = sessionStorage.getItem('isAdminLoggedIn');
+            if (isLoggedIn === 'true') {
+                showDashboard();
+            } else {
+                showLogin();
+            }
+            // Initial update of the hamburger menu link
+            updateAuthLink(isLoggedIn === 'true');
+
+             // Ensure adminHeaderLink is hidden on admin page when logged in, shown when logged out
+             const adminHeaderLink = document.getElementById('adminHeaderLink');
+             if (adminHeaderLink) {
+                if (isLoggedIn === 'true') {
+                     adminHeaderLink.style.display = 'none';
+                } else {
+                     adminHeaderLink.style.display = 'block';
+                }
+             }
+        };
+
+        // Show/hide hamburger menu content on click (Admin Page)
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const menuContent = document.querySelector('.hamburger-menu .menu-content');
+
+        if (hamburgerMenu && menuContent) {
+            hamburgerMenu.addEventListener('click', function() {
+                menuContent.classList.toggle('show');
+            });
+
+            // Close menu when clicking outside (optional but good UX)
+            document.addEventListener('click', function(event) {
+                if (!hamburgerMenu.contains(event.target) && !menuContent.contains(event.target)) {
+                    menuContent.classList.remove('show');
+                }
+            });
+        }
+    </script>
 </body>
 </html> 
